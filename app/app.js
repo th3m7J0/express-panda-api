@@ -56,11 +56,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 // logger for the body data
 // loggerBody(app,{noColors:true})
 
+// API context
+const context = process.env.CONTEXT;
 // for public resources
-app.use('/api/public',express.static('app/public'));
+app.use(`/${context}/public`,express.static('app/public'));
 
 // endpoints
-app.use('/api/panda', panda);
+app.use(`/${context}/panda`, panda);
 
 
 
@@ -70,7 +72,7 @@ app.use('/api/panda', panda);
 app.use(errors.notFound);
 
 // handle other errors
-app.use(errors.handleOthers);
+app.use(errors.handleOthers(context));
 
 process.on('unhandledRejection', err => {
     console.log(err.name, err.message);
