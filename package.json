@@ -1,0 +1,34 @@
+{
+  "name": "express-generator-enhanced",
+  "version": "0.0.0",
+  "private": true,
+  "description": "this is a REST API",
+  "scripts": {
+    "start": "node app/bin/www",
+    "dev": "nodemon app/bin/www",
+    "test": "mocha",
+    "lint": "eslint --fix ."
+  },
+  "dependencies": {
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "node-fetch": "^2.6.0",
+    "count-lines-in-file": "^1.1.0",
+    "dotenv": "^8.2.0",
+    "express-validator": "^6.4.1",
+    "helmet": "^3.21.2",
+    "mongoose": "^5.7.6",
+    "body-parser": "^1.19.0",
+    "crud-helper": "^1.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.1.1",
+    "morgan-body": "^2.4.8",
+    "nodemon": "^2.0.2"
+  }
+}
