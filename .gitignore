@@ -2,14 +2,13 @@
 
 # dependencies
 node_modules/
-# exclude everything
+# exclude app/var/log/*
 app/var/log/*
 # exception
 !app/var/log/.gitkeep
 # exclude app/var/*
 app/var/*
-# exception
-!app/var/.gitkeep
+!app/var/log
 # exclude public images content
 app/public/images/*
 
