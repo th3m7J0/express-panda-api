@@ -8,13 +8,21 @@ module.exports = {
         const {name,skill} = req.body;
         return {name:name,skill:skill};
     }),
-    getByMany: crudHelper.getByMany(pandaModel),
-    getById: crudHelper.getById(pandaModel),
-    updateById: crudHelper.updateById(pandaModel,(req)=>{
+    getByMany: crudHelper.get(pandaModel,'find',(req)=>{
+        return {};
+    }),
+    getById: crudHelper.get(pandaModel,'findOne',(req)=>{
+        return {_id: req.params.id};
+    }),
+    updateById: crudHelper.update(pandaModel,'findOneAndUpdate',(req)=>{
+        return {_id: req.params.id};
+    },(req)=>{
         const {name,skill} = req.body;
         const myBody = {name:name,skill:skill};
         return extra.flexible(myBody);
     }),
-    deleteById: crudHelper.deleteById(pandaModel),
+    deleteById: crudHelper.delete(pandaModel,'findOneAndDelete',(req)=>{
+    return {_id: req.params.id};
+    }),
 
 }
