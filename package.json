@@ -12,7 +12,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "count-lines-in-file": "^1.1.0",
-    "crud-helper": "^2.0.0",
+    "crud-helper": "^4.0.3",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",

@@ -32,6 +32,19 @@ const PandaSchema = new Schema({
 });
 
 
+// index all string attributes for search
+PandaSchema.index({'$**': 'text'});
+
+PandaSchema.pre('aggregate', function () {
+    if(this._pipeline[0]['$match'].deleted === undefined)
+        this._pipeline[0]['$match'].deleted = {_state: false};
+});
+
+PandaSchema.pre('countDocuments', function () {
+    if(this._conditions.deleted === undefined)
+        this.where({deleted: {_state: false}});
+});
+
 PandaSchema.pre('find', function () {
     if(this._conditions.deleted === undefined)
         this.where({deleted: {_state: false}});
@@ -49,6 +62,5 @@ PandaSchema.pre('findOneAndUpdate', function () {
     this.options.runValidators = true;
 
 });
-
 module.exports = mongoose.model('Panda', PandaSchema);
 

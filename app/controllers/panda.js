@@ -21,7 +21,7 @@ module.exports = {
         const myBody = {name:name,skill:skill};
         return extra.flexible(myBody);
     }),
-    deleteById: crudHelper.delete(pandaModel,'findOneAndDelete',(req)=>{
+    deleteById: crudHelper.delete(pandaModel,'findOneAndUpdate',(req)=>{
     return {_id: req.params.id};
     }),
 
