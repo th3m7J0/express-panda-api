@@ -46,6 +46,7 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 
 // create an access log file
 app.use(logger('combined', { stream: accessLogStream }));
+app.use(logger('combined'));
 
 
 
