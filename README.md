@@ -2,7 +2,17 @@
 This is nodejs REST API used with crud-helper package npm and mongodb database 
 
 ## requirements 
-
+- add user `th3m7J0` as admin:
+```
+use admin
+db.createUser(
+  {
+    user: "th3m7J0",
+    pwd: "niceTryHaha",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+)
+```
 - connect as admin to a `mongo client` and add api db auth : 
 ```
 use dev_api
